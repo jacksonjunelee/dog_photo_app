@@ -1,30 +1,24 @@
-<div class="container">
-  <h1>Camera API</h1>
-
-  <section class="main-content">
-    
-    <p>
-      Click the button to take a picture!
-    </p>
-                
-    <p>
-      <input type="file" id="take-picture" accept="images/*" capture="camera">
-    </p>
-
-    <h2>
-      Preview:
-    </h2>
-    
-    <p>
-      <img src="about:blank" alt="" id="show-picture">
-    </p>
-
-    <p id="error">
-    </p>
-
-  </section>
-
-</div>
+<form id="form1" enctype="multipart/form-data" method="post">
+ 
+    <div>
+ 
+      <label for="fileToUpload">Take or select photo(s)</label><br />
+ 
+      <input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" accept="image/*" capture="camera" />
+ 
+    </div>
+ 
+    <div id="details"></div>
+ 
+    <div>
+ 
+      <input type="button" onclick="uploadFile()" value="Upload" />
+ 
+    </div>
+ 
+    <div id="progress"></div>
+ 
+  </form>
 
 
 <script src="javascripts/snap.js"></script>

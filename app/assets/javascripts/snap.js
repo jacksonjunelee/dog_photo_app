@@ -1,46 +1,99 @@
-(function () {
-  var takePicture = document.querySelector("#take-picture"),
-    showPicture = document.querySelector("#show-picture");
+function fileSelected() {
 
-  if (takePicture && showPicture) {
-    // Set events
-    takePicture.onchange = function (event) {
-      // Get a reference to the taken picture or chosen file
-      var files = event.target.files,
-        file;
-      if (files && files.length > 0) {
-        file = files[0];
-        try {
-          // Get window.URL object
-          var URL = window.URL || window.webkitURL;
+  var count = document.getElementById('fileToUpload').files.length;
 
-          // Create ObjectURL
-          var imgURL = URL.createObjectURL(file);
+    document.getElementById('details').innerHTML = "";
 
-          // Set img src to ObjectURL
-          showPicture.src = imgURL;
+    for (var index = 0; index < count; index ++)
 
-          // Revoke ObjectURL
-          URL.revokeObjectURL(imgURL);
-      }
-      catch (e) {
-        try {
-          // Fallback if createObjectURL is not supported
-          var fileReader = new FileReader();
-          fileReader.onload = function (event) {
-            showPicture.src = event.target.result;
-          };
-          fileReader.readAsDataURL(file);
-        }
-          catch (e) {
-              //
-            var error = document.querySelector("#error");
-            if (error) {
-              error.innerHTML = "Neither createObjectURL or FileReader are supported";
-            }
-          }
-        }
-      }
-    };
+    {
+
+       var file = document.getElementById('fileToUpload').files[index];
+
+       var fileSize = 0;
+
+       if (file.size > 1024 * 1024)
+
+         fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+
+       else
+
+          fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+
+       document.getElementById('details').innerHTML += 'Name: ' + file.name + '<br>Size: ' + fileSize + '<br>Type: ' + file.type;
+
+       document.getElementById('details').innerHTML += '<p>';
+
+    }
+
+    }
+
+function uploadFile() {
+
+  var fd = new FormData();
+
+    var count = document.getElementById('fileToUpload').files.length;
+
+    for (var index = 0; index < count; index ++)
+
+    {
+
+       var file = document.getElementById('fileToUpload').files[index];
+
+       fd.append(file.name, file);
+
+    }
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.upload.addEventListener("progress", uploadProgress, false);
+
+  xhr.addEventListener("load", uploadComplete, false);
+
+  xhr.addEventListener("error", uploadFailed, false);
+
+  xhr.addEventListener("abort", uploadCanceled, false);
+
+  xhr.open("POST", "savetofile.aspx");
+
+  xhr.send(fd);
+
+}
+
+function uploadProgress(evt) {
+
+  if (evt.lengthComputable) {
+
+    var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+
+    document.getElementById('progress').innerHTML = percentComplete.toString() + '%';
+
   }
-})();
+
+  else {
+
+    document.getElementById('progress').innerHTML = 'unable to compute';
+
+  }
+
+}
+
+    function uploadComplete(evt) {
+
+      /* This event is raised when the server send back a response */
+
+      alert(evt.target.responseText);
+
+    }
+
+    function uploadFailed(evt) {
+
+      alert("There was an error attempting to upload the file.");
+
+    }
+
+    function uploadCanceled(evt) {
+
+      alert("The upload has been canceled by the user or the browser dropped the connection.");
+
+    }
