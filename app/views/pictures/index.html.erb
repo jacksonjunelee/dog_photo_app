@@ -1,1 +1,29 @@
-<%= cameraInput %>
+<!-- // <script charset="utf-8">
+// var showPicture = document.querySelector("cameraInput");
+// // Get window.URL object
+// var URL = window.URL || window.webkitURL;
+//
+// // Create ObjectURL
+// var imgURL = URL.createObjectURL(file);
+//
+// // Set img src to ObjectURL
+// showPicture.src = imgURL;
+//
+// // For performance reasons, revoke used ObjectURLs
+// URL.revokeObjectURL(imgURL);
+// </script> -->
+
+<script>
+filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
+var y = document.getElementById("cameraInput");
+filepicker.pick(
+  function(y){
+    console.log(y.url);
+  }
+var photo = {
+  url: y.url,
+}
+filepicker.store(photo, {path: '/'})
+);
+// filepicker.store($('input'),{path: 'Desktop/'});
+</script>
