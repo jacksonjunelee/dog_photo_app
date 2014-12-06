@@ -1,6 +1,24 @@
 Welcome
 
-<form action="/pictures" method="get">
+<script charset="utf-8">
+filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
+filepicker.pickAndStore({},{path: '/'},function(Blobs){
+  console.log(JSON.stringify(Blobs));
+});
+// var x = filepicker.pick(
+//   function(y){
+//     console.log(y.url);
+//   }
+// );
+// filepicker.store(
+//   x,
+//   {path: '/'}
+// );
+</script>
+
+<!-- <form action="/pictures" method="get">
+
   <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
-  <input type="submit" value="Choose File">
-</form>
+  <input type="submit" value="Submit File">
+
+</form> -->
