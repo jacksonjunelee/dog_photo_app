@@ -1,0 +1,67 @@
+
+<output></output>
+
+<%= form_for @picture do |f| %>
+
+  <%= f.file_field :image %>
+  <p>
+    <%= f.submit :'Upload', id:"save", class:"primary-button" %>
+  </p>
+<% end %>
+
+
+
+<script>
+
+  $(function() {
+
+    $('form').on('submit', function(e) {
+      if ($('output').children().length === 1) {
+        return true;
+      } else if ($('img').length > 0) {
+        return true
+      } else {
+        e.preventDefault();
+        $('<div class="validation-error">Please choose a file!</div>').prependTo('.add-image').hide().slideDown()
+        setTimeout(function(){
+          $('.validation-error').slideToggle(577, function() {
+            $(this).remove()
+          });
+        }, 3777);
+        return false;
+      };
+    });
+
+    var $current_image = $('#current_image');
+    var $pictureImage = $('#picture_image');
+    $pictureImage.trigger('change');
+    $pictureImage.on('change', function(event){
+      var file = event.target.files[0];
+      $current_image.remove();
+      if (file.type.match('image.*')){
+        var reader = new FileReader();
+        reader.onload = (function(theFile){
+          var img = new Image();
+          img.src = theFile.target.result;
+          var $output = $('output');
+          $output.html(img);
+        });
+        reader.readAsDataURL(file);
+      }
+    });
+
+    var $form = $('form');
+    $form.submit(function(){
+      $.each(params, function(i, param){
+        $('<input />').attr('type', 'hidden')
+        .attr('name', param.name)
+        .attr('value', param.value)
+        .appendTo($form);
+      });
+    });
+
+
+
+  });
+
+</script>

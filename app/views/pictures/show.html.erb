@@ -1,0 +1,12 @@
+<div class="body cf">
+  <div class="show-image">  
+    <div class="col1">
+      <%= image_tag @picture.image.url(:medium) %>      
+    </div>
+    
+    <div class="col2">
+      <%= button_to("Edit this image!", edit_picture_path(@picture), method: :get, 'class' => 'edit secondary-button') %>
+      <%= link_to('or delete it from your gallery', picture_path(@clothing_item), method: :delete, 'class' => 'delete', data: { confirm: 'Are you sure?' }) %><br>
+    </div>
+  </div>
+</div>  
