@@ -5,6 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+  window.launchNativeApp = function() {
+    setTimeout(function() {
+      window.location = 'http://www.yourcompanyname.com/instruction-to-install-app.html'
+    }, 500);
+
+    window.location = 'yourcompany://photopicker?action=http://www.yourcompanyname.com/path-to-upload-to/?continue=http://www.yourcompanyname.com&maxsize=300&source=camera';
+  };
+  </script>
 </head>
 <body>
 
