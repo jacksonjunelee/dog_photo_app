@@ -2,7 +2,6 @@
 <output></output>
 
 <%= form_for @picture do |f| %>
-
   <%= f.file_field :image, accept: 'image/*', id: 'capture', capture: 'camera' %>
   <p>
     <%= f.submit :'Upload', id:"save", class:"primary-button" %>
@@ -11,6 +10,7 @@
 
 
 
+<!--
 <script>
 
   $(function() {
@@ -64,4 +64,4 @@
 
   });
 
-</script>
+</script> -->

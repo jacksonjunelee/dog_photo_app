@@ -6,13 +6,14 @@ HOLA
 <script type="text/javascript">
 
 var featherEditor = new Aviary.Feather({
-  apiKey: 'befb957b5c93af5b',
+  apiKey: "<%= ENV["AVIARY"] %>",
   apiVersion: 3,
   tools: 'all',
   onSave: function(imageID, newURL) {
     var img = document.getElementById("editableimage1");
     img.src = "https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA";
   },
+
 });
 
 function launchEditor(id, src) {
