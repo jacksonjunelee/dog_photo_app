@@ -1,4 +1,3 @@
-
 <output></output>
 
 <%= form_for @picture do |f| %>
@@ -12,9 +11,7 @@
 
 <!--
 <script>
-
   $(function() {
-
     $('form').on('submit', function(e) {
       if ($('output').children().length === 1) {
         return true;
@@ -31,7 +28,6 @@
         return false;
       };
     });
-
     var $current_image = $('#current_image');
     var $pictureImage = $('#picture_image');
     $pictureImage.trigger('change');
@@ -49,7 +45,6 @@
         reader.readAsDataURL(file);
       }
     });
-
     var $form = $('form');
     $form.submit(function(){
       $.each(params, function(i, param){
@@ -59,9 +54,5 @@
         .appendTo($form);
       });
     });
-
-
-
   });
-
 </script> -->
