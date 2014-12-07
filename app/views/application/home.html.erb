@@ -1,25 +1,51 @@
 Welcome
 
-<%= form_tag(pictures_path, method: :post) do  %>
-<script charset="utf-8">
-filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
-filepicker.pickAndStore({},{},function(Blobs){
-    return JSON.stringify(Blobs);
-});
-// // var x = filepicker.pick(
-// //   function(y){
-// //     console.log(y.url);
-// //   }
-// // );
-// // filepicker.store(
-// //   x,
-// //   {path: '/'}
-// // );
- </script>
-<!-- <a download="test.jpg" href="https://www.google.com/images/srpr/logo11w.png">Testing</a>
-<form action="/pictures" method="get">
+<!-- <audio controls>
+  <source src="app/assets/audio/dog_call.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
 
-  <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
-  <input type="submit" value="Submit File">
+<img src="app/assets/images/IMG_4610.JPG" height="42" width="42"> -->
+<%= link_to (image_tag("IMG_4610.JPG")), '/pictures' %>
 
+
+<!-- <BGSOUND id="BGSOUND_ID" LOOP=3 SRC="app/assets/audio/dog_call.wav">
+
+<script type="text/javascript" language="JavaScript">
+
+var playSound = function(audioURL) {
+  if (document.all) document.all['BGSOUND_ID'].src=audioURL;
+  else self.iplayer.location.replace('jsplayer.htm?'+audioURL);
+}
+
+</script>
+
+<form name=myform>
+  <input type=button value="Play Sound" onClick="playSound('dog_call.wav')">
 </form> -->
+
+
+
+
+<!-- // <script charset="utf-8">
+// filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
+// filepicker.pickAndStore({},{},function(Blobs){
+//     return JSON.stringify(Blobs);
+// });
+// // // var x = filepicker.pick(
+// // //   function(y){
+// // //     console.log(y.url);
+// // //   }
+// // // );
+// // // filepicker.store(
+// // //   x,
+// // //   {path: '/'}
+// // // );
+//  </script>
+// <! <a download="test.jpg" href="https://www.google.com/images/srpr/logo11w.png">Testing</a>
+// <form action="/pictures" method="get">
+//
+//   <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
+//   <input type="submit" value="Submit File">
+//
+// </form> -->
