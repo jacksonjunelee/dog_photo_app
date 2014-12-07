@@ -1,10 +1,11 @@
 Welcome
 
-<!-- // <script charset="utf-8">
-// filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
-// filepicker.pickAndStore({},{},function(Blobs){
-//   console.log(JSON.stringify(Blobs));
-// });
+<%= form_tag(pictures_path, method: :post) do  %>
+<script charset="utf-8">
+filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
+filepicker.pickAndStore({},{},function(Blobs){
+    return JSON.stringify(Blobs);
+});
 // // var x = filepicker.pick(
 // //   function(y){
 // //     console.log(y.url);
@@ -14,11 +15,11 @@ Welcome
 // //   x,
 // //   {path: '/'}
 // // );
-// </script> -->
-<a download="test.jpg" href="https://www.google.com/images/srpr/logo11w.png">Testing</a>
+ </script>
+<!-- <a download="test.jpg" href="https://www.google.com/images/srpr/logo11w.png">Testing</a>
 <form action="/pictures" method="get">
 
   <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
   <input type="submit" value="Submit File">
 
-</form>
+</form> -->
