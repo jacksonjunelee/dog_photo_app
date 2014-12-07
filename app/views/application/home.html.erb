@@ -2,14 +2,8 @@ Welcome
 
 <script charset="utf-8">
 filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
-$(function() {
-  filepicker.pickAndStore(
-    {},
-    {},
-    onSuccess(function(Blobs) {
-      console.log(JSON.stringify(Blobs));
-      var picUrl = Blobs.url;
-    });
+filepicker.pickAndStore({},{},function(Blobs){
+    return JSON.stringify(Blobs);
 });
 // // var x = filepicker.pick(
 // //   function(y){
