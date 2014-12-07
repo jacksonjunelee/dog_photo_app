@@ -1,11 +1,32 @@
-HOLA
+MUFASASASA
 
 
 <audio id="dog_call" class="audio_player" preload="auto" autoplay=true>
   <source src='dog_call.wav' type="audio/wav">
   </audio>
 
-<input type="file" capture="camera" id="cameraInput" name="cameraInput">
+<script charset="utf-8">
+filepicker.setKey("<%= ENV["FILEPICKER_API"] %>");
+filepicker.pick(
+  {service: ['WEBCAM']},
+  function(Blob){
+    console.log(Blob.url);
+  }
+);
+// window.location = "<%=cute_dog_index_path%>";
+</script>
+
+<!-- https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA","filename":"snap.jpg","mimetype":"image/jpeg","size":28208,"isWriteable":true}] -->
+
+<!-- [{"url":"https://www.filepicker.io/api/file/Y4mfdN8TTH2dDyhEf9UP","filename":"snap.jpg","mimetype":"image/jpeg","size":28208,"isWriteable":true}]
+pictures:33 undefined -->
+
+<!-- INSERT BUTTON INSTEAD? -->
+
+<!-- <form action="<%= cute_dog_index_path %>" method="get">
+<input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
+<input type="submit" value="Submit File">
+ </form> -->
 
 <!-- // <script>
 //   $.each($('dog_call'), function () {

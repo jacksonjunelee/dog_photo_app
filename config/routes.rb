@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :pictures
+  resources :aviarys,  only: [:index], as: :cute_dog 
   root 'application#home'
 end
   # The priority is based upon order of creation: first created -> highest priority.
