@@ -1,9 +1,11 @@
 
 <output></output>
 
+
+
 <%= form_for @picture do |f| %>
 
-  <%= f.file_field :image, accept: 'image/*', id: 'capture', capture: 'camera' %>
+  <%= f.file_field :image %>
   <p>
     <%= f.submit :'Upload', id:"save", class:"primary-button" %>
   </p>
@@ -14,6 +16,8 @@
 <script>
 
   $(function() {
+
+    
 
     $('form').on('submit', function(e) {
       if ($('output').children().length === 1) {
@@ -33,7 +37,7 @@
     });
 
     var $current_image = $('#current_image');
-    var $pictureImage = $('#picture_image');
+    var $pictureImage = $('#capture');
     $pictureImage.trigger('change');
     $pictureImage.on('change', function(event){
       var file = event.target.files[0];
@@ -49,6 +53,13 @@
         reader.readAsDataURL(file);
       }
     });
+
+    var params = [
+      {
+        name:'tags',
+        value: tag_array
+      }
+    ];
 
     var $form = $('form');
     $form.submit(function(){
