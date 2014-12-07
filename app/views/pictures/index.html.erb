@@ -1,10 +1,9 @@
-MUFASASASA
-
-<%= link_to cute_dog_index_path %>
+<%= link_to(cute_dog_index_path) %>
 
 <audio loop id="dog_call" class="audio_player" preload="auto" autoplay=true>
   <source src='dog_call.wav' type="audio/wav">
-  </audio>
+</audio>
+<img src="" alt="">
 
 <script charset="utf-8">
 filepicker.setKey("<%= ENV["FILEPICKER_API"] %>");
@@ -12,12 +11,33 @@ filepicker.pick(
   {service: ['WEBCAM']},
   function(Blob){
     console.log(Blob.url);
+    url = Blob.url;
   }
 );
 
+var elem = document.getElementsByClassName('btn btn-primary btn-large')
+
+elem.onclick = function previewFile() {
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('video').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+
+
+
 </script>
 
-https://www.filepicker.io/api/file/RCfwNS2ROqZe0TTP7FDO
+
 
 <!-- https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA","filename":"snap.jpg","mimetype":"image/jpeg","size":28208,"isWriteable":true}] -->
 
