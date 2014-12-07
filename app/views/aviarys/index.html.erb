@@ -10,8 +10,8 @@ var featherEditor = new Aviary.Feather({
   apiVersion: 3,
   tools: 'all',
   onSave: function(imageID, newURL) {
-    var img = document.getElementById("editableimage1");
-    img.src = "https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA";
+    var img = document.getElementById(imageID);
+    img.src =newURL;
   },
 
 });
