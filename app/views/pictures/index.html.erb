@@ -1,3 +1,19 @@
+HOLA
+
+<audio id="sound_effect" class="audio_player" preload="auto">
+  <source src="/audios/dog_call.wav" type="audio/wav">
+  </audio>
+
+  <audio id="audiotag1" src="audios/dog_call.wav" preload="auto"></audio>
+  <a href="javascript:play_single_sound();">Play 5-sec sound on single channel</a>
+  <script type="text/javascript">
+  function play_single_sound() {
+    document.getElementById('audiotag1').play();
+  }
+  </script>
+
+
+<%= audio_tag("dog_call.wav") %>
 <!-- // <script charset="utf-8">
 // var showPicture = document.querySelector("cameraInput");
 // // Get window.URL object
@@ -25,3 +41,28 @@
 // );
 // // filepicker.store($('input'),{path: 'Desktop/'});
 // </script> -->
+<!-- <img id="editableimage1" src="https://www.petfinder.com/wp-content/uploads/2012/11/122163343-conditioning-dog-loud-noises-632x475.jpg"/>
+
+<script type='text/javascript'>
+var featherEditor = new Aviary.Feather({
+  apiKey: 'your-key-here',
+  apiVersion: 3,
+  theme: 'dark', // Check out our new 'light' and 'dark' themes!
+  tools: 'all',
+  appendTo: '',
+  onSave: function(imageID, newURL) {
+    var img = document.getElementById(imageID);
+    img.src = newURL;
+  },
+  onError: function(errorObj) {
+    alert(errorObj.message);
+  }
+});
+function launchEditor(id, src) {
+  featherEditor.launch({
+    image: id,
+    url: src
+  });
+  return false;
+}
+</script> -->
