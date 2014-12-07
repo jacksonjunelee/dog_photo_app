@@ -1,19 +1,10 @@
 HOLA
 
-<audio id="sound_effect" class="audio_player" preload="auto">
-  <source src="/audios/dog_call.wav" type="audio/wav">
+<audio controls id="sound_effect" class="audio_player" preload="auto">
+  <source src='dog_call.wav' type="audio/wav">
   </audio>
 
-  <audio id="audiotag1" src="audios/dog_call.wav" preload="auto"></audio>
-  <a href="javascript:play_single_sound();">Play 5-sec sound on single channel</a>
-  <script type="text/javascript">
-  function play_single_sound() {
-    document.getElementById('audiotag1').play();
-  }
-  </script>
 
-
-<%= audio_tag("dog_call.wav") %>
 <!-- // <script charset="utf-8">
 // var showPicture = document.querySelector("cameraInput");
 // // Get window.URL object
