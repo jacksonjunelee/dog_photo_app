@@ -1,0 +1,30 @@
+HOLA
+
+<img id="editableimage1" src="https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA" alt="" />
+
+<!-- Instantiate the widget -->
+<script type="text/javascript">
+
+var featherEditor = new Aviary.Feather({
+  apiKey: "<%= ENV["AVIARY"] %>",
+  apiVersion: 3,
+  tools: 'all',
+  onSave: function(imageID, newURL) {
+    var img = document.getElementById("editableimage1");
+    img.src = "https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA";
+  },
+
+});
+
+function launchEditor(id, src) {
+  featherEditor.launch({
+    image: "editableimage1",
+    url: "https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA"
+  });
+  return false;
+}
+
+</script>
+
+<a href="https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA" onclick="return launchEditor('editableimage1',
+'https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA');">CUTEIFY YOUR DOG!!</a>

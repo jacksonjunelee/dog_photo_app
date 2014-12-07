@@ -1,19 +1,40 @@
-HOLA
+MUFASASASA
 
-<audio id="sound_effect" class="audio_player" preload="auto">
-  <source src="/audios/dog_call.wav" type="audio/wav">
+
+<audio loop id="dog_call" class="audio_player" preload="auto" autoplay=true>
+  <source src='dog_call.wav' type="audio/wav">
   </audio>
 
-  <audio id="audiotag1" src="audios/dog_call.wav" preload="auto"></audio>
-  <a href="javascript:play_single_sound();">Play 5-sec sound on single channel</a>
-  <script type="text/javascript">
-  function play_single_sound() {
-    document.getElementById('audiotag1').play();
+<script charset="utf-8">
+filepicker.setKey("<%= ENV["FILEPICKER_API"] %>");
+filepicker.pick(
+  {service: ['WEBCAM']},
+  function(Blob){
+    console.log(Blob.url);
   }
-  </script>
+);
+// window.location = "<%=cute_dog_index_path%>";
+</script>
+
+<!-- https://www.filepicker.io/api/file/VXis26wHSMu4a0Kr42DA","filename":"snap.jpg","mimetype":"image/jpeg","size":28208,"isWriteable":true}] -->
+
+<!-- [{"url":"https://www.filepicker.io/api/file/Y4mfdN8TTH2dDyhEf9UP","filename":"snap.jpg","mimetype":"image/jpeg","size":28208,"isWriteable":true}]
+pictures:33 undefined -->
+
+<!-- INSERT BUTTON INSTEAD? -->
+
+<!-- <form action="<%= cute_dog_index_path %>" method="get">
+<input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
+<input type="submit" value="Submit File">
+ </form> -->
+
+<!-- // <script>
+//   $.each($('dog_call'), function () {
+//     this.stop();
+//   });
+// </script> -->
 
 
-<%= audio_tag("dog_call.wav") %>
 <!-- // <script charset="utf-8">
 // var showPicture = document.querySelector("cameraInput");
 // // Get window.URL object
