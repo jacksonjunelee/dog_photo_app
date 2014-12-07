@@ -1,10 +1,15 @@
 Welcome
 
-<%= form_tag(pictures_path, method: :post) do  %>
 <script charset="utf-8">
 filepicker.setKey("AbZiS4ISpQTa7F9uoQdFiz");
-filepicker.pickAndStore({},{},function(Blobs){
-    return JSON.stringify(Blobs);
+$(function() {
+  filepicker.pickAndStore(
+    {},
+    {},
+    onSuccess(function(Blobs) {
+      console.log(JSON.stringify(Blobs));
+      var picUrl = Blobs.url;
+    });
 });
 // // var x = filepicker.pick(
 // //   function(y){
